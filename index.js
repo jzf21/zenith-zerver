@@ -15,7 +15,7 @@ const request = {
   config: {
     encoding: "MULAW",
     sampleRateHertz: 8000,
-    languageCode: "en-GB"
+    languageCode: "en-IN"
   },
   interimResults: true
 };
@@ -68,3 +68,22 @@ wss.on("connection", function connection(ws) {
       });
     
     });
+        //Handle HTTP Request
+        app.get("/", (req, res) => res.sendFile(path.join(__dirname, "/index.html")));
+    
+        app.post("/", (req, res) => {
+          res.set("Content-Type", "text/xml");
+        
+          res.send(`
+            <Response>
+              <Start>
+                <Stream url="wss://${req.headers.host}/"/>
+              </Start>
+              <Say>I will stream the next 60 seconds of audio through your websocket</Say>
+              <Pause length="60" />
+            </Response>
+          `);
+        });
+        
+        console.log("Listening at Port 8080");
+        server.listen(8080);

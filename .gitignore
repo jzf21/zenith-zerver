@@ -1,2 +1,4 @@
 googleauth.json
 node_modules
+.env
+*.env

@@ -1,8 +1,15 @@
 {
   "dependencies": {
     "@google-cloud/speech": "^6.1.0",
+    "@google-cloud/translate": "^8.0.2",
     "express": "^4.18.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs": "^0.0.1-security",
+    "ngrok": "^5.0.0-beta.2",
+    "openai": "^4.17.4",
     "twilio": "^3.84.1",
+    "twilio-client": "^1.15.1",
+    "websockets": "^0.2.0",
     "ws": "^8.14.2"
   }
 }
